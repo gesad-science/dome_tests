@@ -1,0 +1,466 @@
+,user_msg,expected_intent,expected_class,expected_attributes,expected_filter_attributes,processed_attributes,processed_filters,find_entity,find_intent
+0,"add student with name=anderson martins gomes, age=20",ADD,student,"{'name': 'Anderson Martins Gomes', 'age': '20'}",,"{'student': 'student', 'name': 'name', '20': 'gomes'}",{},anderson_martins_gomes,ADD
+1,"add subject with name=brazilian history, description=the history of brazil",ADD,subject,"{'name': 'Brazilian History', 'description': 'The history of Brazil'}",,"{'subject': 'description', 'history': 'description'}",{},history_of_brazil,ADD
+2,"add teacher with name=paulo henrique, age=65, email=ph@uece.br",ADD,teacher,"{'name': 'Paulo Henrique', 'age': '65', 'email': 'ph@uece.br'}",,"{'teacher': 'name', 'br': 'henrique'}",{},ph_uece_br,ADD
+3,"add subject with name=math, description=the best subject ever",ADD,subject,"{'name': 'Math', 'description': 'The best subject ever'}",,"{'name': 'name', 'description': 'description', 'best_subject': 'best subject'}",{},math,ADD
+4,"add subject with name=math, description='the best subject ever!'",ADD,subject,"{'name': 'Math', 'description': 'The best subject ever!'}",,"{'name': 'name', 'description': 'description', 'best_subject': 'best subject'}",{},math,ADD
+5,add student name=anderson,ADD,student,{'name': 'Anderson'},,{'student': 'name=anderson'},{},adolescent,ADD
+6,get students with name anderson,READ,student,{'name': 'anderson'},,"{'students': 'students', 'name': 'name'}",{},anderson,READ
+7,show me the teachers,READ,teacher,,,{},{},teacher,READ
+8,show teachers,READ,teacher,,,{},{},teacher,READ
+9,show teacher,READ,teacher,,,{'show': 'show'},{},teacher,DELETE
+10,"include outcome value 900, date is today, and description is ""adjusting the numbers""",ADD,outcome,"{'value': '900', 'date': 'today', 'description': 'adjusting the numbers'}",,"{'outcome': 'outcome', 'value': 'outcome', 'date': 'date', 'dome_created_at': '2025-04-17'}",{},900,ADD
+11,get invoices,READ,invoice,,,{},{},invoice,READ
+12,"add a test with scope=module x, date=01/01/2022, timeout = 100, limit=10",ADD,test,"{'scope': 'Module X', 'date': '01/01/2022', 'timeout': '100', 'limit': '10'}",,"{'test': 'test', 'scope': 'scope', 'module': 'scope', 'x': 'x', 'date': 'date', 'timeout': 'timeout', 'limit': 'limit'}",{},module_x,ADD
+13,add a test with scope=module y and number = 8,ADD,test,"{'scope': 'Module Y', 'number': '8'}",,{'test': 'number'},{},y,ADD
+14,"add student with name=anderson, age=199",ADD,student,"{'name': 'Anderson', 'age': '199'}",,"{'student': 'student', 'name': 'name', '199': 'anderson'}",{},199,ADD
+15,"delete student name is anderson, and age is 199",DELETE,student,"{'name': 'Anderson', 'age': '199'}",,"{'student': 'name is anderson, and age is 199'}",{},199,DELETE
+16,"add article with title=the title, author=the author",ADD,article,"{'title': 'The title', 'author': 'The author'}",,"{'article': 'author', 'author': 'author'}",{},author,ADD
+17,"update article with title ""the title"" and author ""the author"" set the title to ""the new title""",UPDATE,article,{'title': 'The new title'},"{'title': 'The title', 'author': 'The author'}",{'title': 'title'},"{'title': 'the title', 'author': 'author'}",article,UPDATE
+18,add article with author=anderson,ADD,article,{'author': 'Anderson'},,"{'article': 'article', 'author': 'author'}",{},ad,ADD
+19,"delete article when author=""anderson""",DELETE,article,{'author': 'Anderson'},,{'author': 'author'},{},article,DELETE
+20,show me the articles,READ,article,,,{},{},article,READ
+21,"add article with title=the title, author=the author, abstract=the abstract, keywords=the keywords",ADD,article,"{'title': 'The title', 'author': 'The author', 'abstract': 'The abstract', 'keywords': 'The keywords'}",,"{'title': 'title', 'author': 'author', 'abstract': 'abstract', 'keywords': 'keywords'}",{},abstract,ADD
+22,"update article with title ""the title"", setting the co-author as ""anderson gomes""",UPDATE,article,{'co_author': 'Anderson Gomes'},{'title': 'The title'},{'co_author': 'co-author'},{'title': 'title'},e_mail,UPDATE
+23,"update article with id=1, setting the first author as ""paulo maia""",UPDATE,article,{'first_author': 'Paulo Maia'},{'id': '1'},{'first_author': 'first author'},{'id': 'id'},article,UPDATE
+24,show all students,READ,student,,,{'students': 'students'},{},st,READ
+25,view students,READ,student,,,{},{},view_students,READ
+26,fetch the students,READ,student,,,{'students': 'students'},{},e_mail,READ
+27,get the students,READ,student,,,{'students': 'students'},{},edward_edwards,READ
+28,"for the students with name='anderson', update the name to 'anderson martins'",UPDATE,student,{'name': 'Anderson Martins'},{'name': 'Anderson'},{'students': 'students'},{'name': 'name'},scottish,UPDATE
+29,please change student with name paulo update age to 30,UPDATE,student,{'age': '30'},{'name': 'Paulo'},"{'name': 'name', 'student': 'paulo'}",{},student,UPDATE
+30,"for students with name anderson, update age to 30",UPDATE,student,{'age': '30'},{'name': 'Anderson'},"{'students': 'students', 'name': 'name', '30': 'anderson'}",{},adolescent,UPDATE
+32,update students,UPDATE,student,,,{},None,student,UPDATE
+33,"please, when students have the name equal to anderson, update the age to 30.",UPDATE,student,{'age': '30'},{'name': 'Anderson'},None,None,None,None
+34,update students setting the age to 42 when name is anderson,UPDATE,student,{'age': '42'},{'name': 'Anderson'},"{'students': 'students', 'age': 'age'}",{'name': 'name'},anderson,UPDATE
+35,update students set the age to 42 when name is anderson,UPDATE,student,{'age': '42'},{'name': 'Anderson'},"{'students': 'students', 'age': 'age'}",{'name': 'name'},anderson,UPDATE
+36,set students with age to 42 when name is anderson,UPDATE,student,{'age': '42'},{'name': 'Anderson'},{'name': 'name'},{'students': 'with age'},anderson,UPDATE
+37,"for students with name anderson, update the age to 42",UPDATE,student,{'age': '42'},{'name': 'Anderson'},"{'students': 'students', 'name': 'name', '42': 'anderson'}",{},adolescent,UPDATE
+38,please change student with name anderson update age to 30,UPDATE,student,{'age': '30'},{'name': 'Anderson'},{'30': 'anderson'},{'student': 'name'},adolescent,UPDATE
+39,"please, change the student with name='anderson', updating the age to 30",UPDATE,student,{'age': '30'},{'name': 'Anderson'},{'anderson': 'anderson'},{'student': 'name'},anderson,UPDATE
+40,"update the age to 42, for students with name='anderson'",UPDATE,student,{'age': '42'},{'name': 'Anderson'},"{'students': 'students', 'name': 'name'}",{'age': 'age'},ages,UPDATE
+41,add a student with name joseph,ADD,student,{'name': 'Joseph'},,"{'student': 'student', 'name': 'name'}",{},adolescent,ADD
+42,get students,READ,student,,,{},{},student,READ
+43,add article with title 'dome: a no-code tool',ADD,article,{'title': 'DomE: A no-code tool'},,"{'title': 'title', ""'"": 'dome'}",{},ad,ADD
+44,get articles,READ,article,,,{},{},article,READ
+45,"update the articles with id=1, setting the title='new title'",UPDATE,article,{'title': 'new title'},{'id': '1'},{'title': 'new title'},{'id': 'id'},article,UPDATE
+46,"add article with title='title 2', author='rodrigo'",ADD,article,"{'title': 'title 2', 'author': 'Rodrigo'}",,"{'title': 'title', 'author': 'author'}",{},article,ADD
+47,"update the articles with id=1, setting the co-author='layza'",UPDATE,article,{'co_author': 'Layza'},{'id': '1'},{'co_author': 'co-author'},{'id': 'id'},article,UPDATE
+48,delete the article with id=1,DELETE,article,{'id': '1'},,{'id': 'id'},{},article,DELETE
+49,add a student with age=45,ADD,student,{'age': '45'},,"{'student': 'student', 'age': 'age'}",{},age_45,ADD
+50,show students,READ,student,,,{'students': 'students'},{},e_mail,READ
+51,"include company with name=acme, address=150 coconut street",ADD,company,"{'name': 'ACME', 'address': '150 Coconut Street'}",,"{'company': 'name=acme, address=150 coconut street'}",{},acme,ADD
+52,list companies,READ,company,,,None,None,None,READ
+53,"add another company with name=caju enterprises, owner=anderson gomes and address=200 cumbuco street",ADD,company,"{'name': 'Caju Enterprises', 'owner': 'Anderson Gomes', 'address': '200 Cumbuco Street'}",,"{'company': 'name=caju enterprises', 'owner': 'owner', 'street': 'gomes'}",{},ad,ADD
+54,which company has caju in its name?,READ,company,{'name': 'caju'},,None,None,None,None
+55,"is there a company with ""caju"" in its name?",READ,company,{'name': 'caju'},,None,None,None,None
+56,delete the company whose name is acme,DELETE,company,{'name': 'ACME'},,{'company': 'whose name is acme'},{},acme,DELETE
+57,add a new company with name=american beauty and owner=kevin spacey,ADD,company,"{'name': 'American Beauty', 'owner': 'Kevin Spacey'}",,"{'company': 'company', 'name': 'name', None: 'beauty'}",{},American_Beauty,ADD
+58,list company names sorted in ascending order,READ,company,{'names': 'sorted'},,"{'company': 'name', 'names': 'names', 'ascending_order': 'ascending order'}",{},sorted,READ
+59,list companies sorted by name in ascending order,READ,company,{'name': 'ascending'},,"{'name': 'name', 'ascending_order': 'ascending order'}",{},sorted,READ
+60,add a new company with name=american beauty and owner=janjo chiquim,ADD,company,"{'name': 'American Beauty', 'owner': 'janjo chiquim'}",,"{'company': 'company', 'name': 'name', 'american_beauty': 'name', 'owner': 'name'}",{},American_Beauty,ADD
+61,add a new company with name=american beauty and owner=roger rommel,ADD,company,"{'name': 'American Beauty', 'owner': 'Roger Rommel'}",,"{'company': 'company', 'name': 'name', 'american_beauty': 'name', 'owner': 'name'}",{},American_Beauty,ADD
+62,"list companies, sort by name",READ,company,{'sort': 'by name'},,{'companies': 'name'},{},ad,READ
+63,list all companies,READ,company,,,{'companies': 'list'},{},a,READ
+64,show all companies,READ,company,,,{'companies': 'companies'},{},a,READ
+65,add company with name=roger arrombado,ADD,company,{'name': 'Roger Arrombado'},,{'company': 'name=roger arrombado'},{},ad_agency,ADD
+66,get companies,READ,company,,,{'companies': 'companies'},{},cs,READ
+67,include a company with name=mimoso construcoes,ADD,company,{'name': 'Mimoso Construcoes'},,{'company': 'name=mimoso construcoes'},{},construcoes,ADD
+68,add company a,ADD,company,,,{'company': 'a'},{},a,ADD
+69,add article with abstract equal to 'this is a good article',ADD,article,{'abstract': 'this is a good article'},,"{'abstract': 'abstract', 'good_article': 'good article'}",{},article,ADD
+70,add an article with an abstract equal to 'this is a good article about de human history. the human narratives are around the technology evolution and it's impact on society.',ADD,article,"{'abstract': ""this is a good article about de human history. The human narratives are around the technology evolution and it's impact on society.""}",,"{'abstract': 'abstract', 'good_article': 'good article', 'human_narratives': 'human narratives', 'technology': 'technology', 'evolution': 'evolution', 'impact': 'impact', 'society': 'society'}",{},human_history,ADD
+71,add a student with name mary,ADD,student,{'name': 'Mary'},,"{'student': 'student', 'name': 'name'}",{},mary,ADD
+72,add student 👍,ADD,student,,,{},{},student,ADD
+73,"i want to add a student with name 'rodrigo', age 20 and his skin color is white",ADD,student,"{'name': 'Rodrigo', 'age': '20', 'skin': 'white'}",,None,None,None,None
+74,"now, i want to view all students",READ,student,,,None,None,None,None
+75,i want to delete all students,DELETE,student,,,{'students': 'students'},{},i_want_to_delete_all_students,DELETE
+76,delete students,DELETE,student,,,None,None,None,DELETE
+77,delete students with id <= 4,DELETE,student,{'id': '4'},,{'students': 'students'},{},id,DELETE
+78,delete students with idless than or equal to 4,DELETE,student,,,"{'students': 'students', 'idless': 'idless'}",{},idx,DELETE
+79,delete students with id less than or equal to 4,DELETE,student,{'id': 'less than or equal to 4'},,{'students': 'with id less than or equal to 4'},{},id,DELETE
+80,"delete students with id=1, id=2 and id=3",DELETE,student,,,"{'students': 'students', 'id': 'id'}",{},id_1,DELETE
+81,get students with id <4,READ,student,{'id': '4'},,"{'students': 'students', 'id': 'id'}",{},4,READ
+82,get all students with name 'rodrigo',READ,student,{'name': 'Rodrigo'},,"{'students': 'students', 'name': 'name'}",{},san_francisco,READ
+83,"i want to change the name of a student with name 'rodrigo'. now, i want to set his name as 'rodrigo freitas'",UPDATE,student,{'name': 'Rodrigo Freitas'},{'name': 'Rodrigo'},None,None,None,None
+84,delete 'update' from all students,DELETE,student,,,{'students': 'students'},{},update,DELETE
+85,get all students that starts with 'r',READ,student,,,"{'students': 'students', 'r': 'r'}",{},r,READ
+86,get all students starting with the letter r,READ,student,{'letter': 'R'},,{'students': 'starting with the letter r'},{},r,READ
+87,get all students that the name starts with the letter r,READ,student,{'name': 'R'},,"{'students': 'students', 'name': 'name', 'letter': 'letter', 'r': 'letter'}",{},r,READ
+88,"add film with name ""love, rosie"" and genre ""romance""",ADD,film,"{'name': 'love, Rosie', 'genre': 'romance'}",,"{'film': 'love, rosie', 'genre': 'genre'}",{},romance,ADD
+89,show me the section film,READ,section_film,,,"{'section': 'section', 'film': 'film'}",{},section,READ
+90,show me film,READ,film,,,{'film': 'film'},{},_film_,READ
+91,"add film ""batman (2022)"" with genre=action",ADD,film,{'genre': 'action'},,"{'film': 'film', 'action': 'batman'}",{},action,ADD
+92,"add film with name ""batman (2022)"" and genre=action",ADD,film,"{'name': 'Batman (2022)', 'genre': 'action'}",,"{'film': 'film', 'name': 'name', 'action': 'batman'}",{},action,ADD
+93,"add a film with name ""avatar (2022)"" and genre=action, and another film with name=crepúsculo and genre ""drama""",ADD,film,"{'name': 'Avatar (2022)', 'genre': 'action'}",,"{'film': 'film', 'name': 'name', 'crepusculo': 'name', 'drama': 'name'}",{},action,ADD
+94,"add a film with name ""avatar (2022)"" and genre=action",ADD,film,"{'name': 'Avatar (2022)', 'genre': 'action'}",,{'film': 'genre=action'},{},action,ADD
+95,"now add film with name=crepúsculo and genre ""drama""",ADD,film,"{'name': 'Crepusculo', 'genre': 'Drama'}",,"{'film': 'genre', 'drama': 'genre'}",{},Crepsculo,ADD
+96,"add film with name=crepúsculo and genre ""drama""",ADD,film,"{'name': 'Crepusculo', 'genre': 'Drama'}",,"{'film': 'film', 'name': 'name', 'crepusculo': 'name', 'drama': 'name'}",{},Crepsculo,ADD
+97,"add film with name='crepúsculo' and genre ""drama""",ADD,film,"{'name': 'Crepusculo', 'genre': 'Drama'}",,"{'film': 'genre', 'drama': 'genre'}",{},Drama,ADD
+98,"add film film with name='crepúsculo' and genre=""drama""",ADD,film,"{'name': 'Crepusculo', 'genre': 'Drama'}",,"{'film': 'film', 'name': 'name', 'crepusculo': 'name', 'drama': 'name'}",{},Drama,ADD
+99,"add film with name='crepúsculo' and genre=""drama""",ADD,film,"{'name': 'Crepusculo', 'genre': 'Drama'}",,"{'film': 'film', 'name': 'name', 'crepusculo': 'name', 'drama': 'name'}",{},Drama,ADD
+100,"add film with name ""crepúsculo"" and genre=drama",ADD,film,"{'name': 'Crepusculo', 'genre': 'Drama'}",,{'film': 'genre=drama'},{},Crepsculo,ADD
+101,"add film with name ""crepusculo"" and genre=drama",ADD,film,"{'name': 'Crepusculo', 'genre': 'Drama'}",,{'film': 'genre=drama'},{},Crepusculo,ADD
+102,show me film where action is the genre,READ,film,{'genre': 'action'},,{'film': 'genre'},{},genre,READ
+103,show me film where genre = action,READ,film,{'genre': 'action'},,{'film': 'genre = action'},{},action,READ
+104,add a student with name=anderson,ADD,student,{'name': 'anderson'},,"{'student': 'student', 'name': 'name'}",{},anderson,ADD
+105,add a teacher with name equal to 'italo roger',ADD,teacher,{'name': 'Italo Roger'},,"{'teacher': 'teacher', 'name': 'name'}",{},adolescent,ADD
+106,get all teachers,READ,teacher,,,{},{},teacher,READ
+107,get teachers,READ,teacher,,,{},{},teacher,READ
+108,give me all students,READ,student,,,{'students': 'students'},{},st,READ
+109,add a former teacher with name = anderson,ADD,former_teacher,{'name': 'Anderson'},,{'former_teacher': 'anderson'},{},anderson,ADD
+110,add a former student with name = roger,ADD,former_student,{'name': 'Roger'},,{'former_student': 'roger'},{},roger,ADD
+111,"add a article with title=’dome: an experiment', abstract=’this
+is a cool experiment’, keywords=’dome, ai, machine learning, self-drive systems, python’, data=’2023’, first author=’anderson
+martins gomes’, co-author=’paulo henrique maia’, second author= ‘marina alves costa gomes’",ADD,article,"{'title': 'DoME: an experiment', 'abstract': 'this is a cool experiment', 'keywords': 'dome, ai, machine learning, self-drive systems, python', 'date': '2023', 'first_author': 'anderson martins gomes', 'co_author': 'paulo henrique maia', 'second_author': 'marina alves costa gomes'}",,{'’': 'dome'},{},domain__an_experiment,ADD
+112,add a movie with name=final fantasy,ADD,film,{'name': 'Final Fantasy'},,{'movie': 'name=final fantasy'},{},ad,ADD
+113,get movies,READ,film,,,{},{},film,READ
+114,get filmes where id=3,READ,film,{'id': '3'},,{'filmes': 'where id=3'},{},id_3,READ
+115,get films,READ,film,,,{'films': 'films'},{},adobe,READ
+116,"update film with id=6, setting year to 2023",UPDATE,film,{'year': '2023'},{'id': '6'},{},None,year,UPDATE
+117,add film with title=et,ADD,film,{'title': 'ET'},,"{'film': 'film', 'title': 'film', 'et': 'et'}",{},title_et,ADD
+118,add student with name='anderson',ADD,student,{'name': 'anderson'},,"{'student': 'student', 'name': 'name'}",{},adolescent,ADD
+119,get all films,READ,film,,,{'films': 'films'},{},adobe,READ
+120,add a student with age=43,ADD,student,{'age': '43'},,"{'student': 'student', 'age': 'age'}",{},age_43,ADD
+121,get student with name=julio,READ,student,{'name': 'Julio'},,"{'student': 'student', 'name': 'name'}",{},julio,READ
+122,get student with name=anderson,READ,student,{'name': 'Anderson'},,"{'student': 'student', 'name': 'name'}",{},anderson,READ
+123,add student with name=julio,ADD,student,{'name': 'Julio'},,"{'student': 'student', 'name': 'name'}",{},julio,ADD
+124,list student,READ,student,,,None,None,None,None
+125,add course with name='computer engineering',ADD,course,{'name': 'Computer Engineering'},,"{'course': 'course', 'name': 'name', 'computer': 'computer', 'engineering': 'engineering'}",{},computer_engineering,ADD
+126,list all entities,READ,entities,,,{},{},a,READ
+127,get courses,READ,course,,,{'courses': 'courses'},{},cs,READ
+128,show course,READ,course,,,{},{},course,READ
+129,get the class with name=student,READ,student,{'class': 'student'},,{'class': 'name=student'},{},student,READ
+130,add student with name=abcd,ADD,student,{'name': 'abcd'},,{'student': 'name=abcd'},{},abcd,ADD
+131,add student with name=abcdef,ADD,student,{'name': 'abcdef'},,"{'student': 'student', 'name': 'name'}",{},abcdef,ADD
+132,"add student with name='maria', phone=123456",ADD,student,"{'name': 'maria', 'phone': '123456'}",,{'student': 'phone'},{},phone,ADD
+134,add student with name joseph,ADD,student,{'name': 'Joseph'},,"{'student': 'student', 'name': 'name'}",{},st,ADD
+135,update student age=40 when id= 4,UPDATE,student,{'age': '40'},{'id': '4'},{'id': 'id'},{'student': 'age'},id4,UPDATE
+136,"add an article with title='dome: a reference architecture, publish year = 2023",ADD,article,"{'title': 'DoME: A Reference Architecture', 'publish_year': '2023'}",,"{'title': 'title', None: 'dome'}",{},domain__a_reference_architecture,ADD
+137,"add an article with title='dome: a reference architecture', and the publish year = 2023",ADD,article,"{'title': 'DoME: A Reference Architecture', 'publish_year': '2023'}",,"{'title': 'title', None: 'dome'}",{},reseach_architecture,ADD
+138,"add an article with title='dome: a reference architecture', and year = 2023",ADD,article,"{'title': 'DoME: A Reference Architecture', 'year': '2023'}",,{'2023': 'dome'},{},2023,ADD
+139,get all articles,READ,article,,,{},{},article,READ
+140,"add article with title='another article', and author='charles bronson'",ADD,article,"{'title': 'Another Article', 'author': 'Charles Bronson'}",,"{'title': 'another article', 'author': 'author'}",{},article,ADD
+141,show me all articles,READ,article,,,{},{},article,READ
+142,"update the article with id=1, setting the author='madona'",UPDATE,article,{'author': 'Madona'},{'id': '1'},{'author': 'author'},{'id': 'id'},article,UPDATE
+143,i want you to show me all articles,READ,article,,,{},{},article,DELETE
+144,"add a new article with title ""experimental demonstration of shor's quantum factoring algorithm using qubits""",ADD,article,"{'title': ""Experimental demonstration of Shor's quantum factoring algorithm using qubits""}",,"{'title': 'experiment', 'experimental_demonstration': 'experiment', '""': 'shor'}",{},quantum_factoring_algorithm,ADD
+145,show all articles,READ,article,,,{},{},article,READ
+146,"update article with id = 2, but now i want to set title as 'experimental demonstration of shor's quantum factoring algorithm using qubits'",UPDATE,article,"{'title': ""Experimental demonstration of Shor's quantum factoring algorithm using qubits""}",{'id': '2'},"{'id': 'id', 'article': 'shor'}",{},article,UPDATE
+147,add a new article with title 'quantum machine learning',ADD,article,{'title': 'Quantum Machine Learning'},,"{""'"": 'quantum'}",{},Quantum_machine_learning,ADD
+148,show me articles,READ,article,,,{},{},article,READ
+149,"update the article with id 3, but now i want to set its year=2022",UPDATE,article,{'year': '2022'},{'id': '3'},{'year': 'year'},{'id': 'id'},article,UPDATE
+150,show articles,READ,article,,,{},{},article,READ
+151,add a new article with title='futuro deletado,ADD,article,{'title': 'futuro deletado'},,"{'title': 'title', 'deletado': 'deletado'}",{},Futuro_deletado,ADD
+152,delete all articles with title='futuro deletado',DELETE,article,{'title': 'futuro deletado'},,{'title': 'futuro deletado'},{},article,DELETE
+153,get blockages,READ,blockages,,,{},{},blockages,READ
+154,"add a blockade with the localization ’222 road, km 13’",ADD,blockade,"{'localization': '222 road, km 13'}",,{'km': '222 road'},{},222_road__km_13,ADD
+155,show me all blockages,READ,blockages,,,{},{},blockages,READ
+156,show me all blockades,READ,blockade,,,{},{},blockade,READ
+157,"add a blockade with the localization ’222 road, km 13’, and type='partial blockade'",ADD,blockade,"{'localization': '222 road, km 13', 'type': 'partial blockade'}",,"{'localization': '222 road, km 13', 'type': 'localization', 'partial_blockade': 'localization'}",{},222_road__km_13,ADD
+158,get blockades,READ,blockade,,,{},{},blockade,READ
+159,"add a blockade with the localization ’116 road, km 105’, and type='partial blockade'",ADD,blockade,"{'localization': '116 road, km 105', 'type': 'partial blockade'}",,"{'localization': '116 road, km 105', 'type': 'localization', 'partial_blockade': 'localization'}",{},116_road__km_105,ADD
+160,add article with title 'shor's quantum',ADD,article,"{'title': ""Shor's Quantum""}",,{'title': 'title'},{},atom,ADD
+167,add a student with name='mariana alves',ADD,student,{'name': 'Mariana Alves'},,"{'student': 'student', 'name': 'name'}",{},alves,ADD
+168,show me all students,READ,student,,,{'students': 'students'},{},st,READ
+169,show me all aritcles,READ,aritcles,,,{'aritcles': 'aritcles'},{},aritcles,READ
+170,showme all articles,READ,article,{'showme': 'all articles'},,None,None,None,None
+171,add an article with title='cautious adaptation of defiant components',ADD,article,{'title': 'Cautious Adaptation of Defiant Components'},,"{'title': 'title', 'cautious_adaptation': 'title', 'defiant_components': 'title'}",{},adobe_free,ADD
+172,"update the article with id=6, setting the year=2019",UPDATE,article,{'year': '2019'},{'id': '6'},{'year': 'year'},{'id': 'id'},article,UPDATE
+173,retrieve articles,READ,article,,,{},{},article,READ
+174,view articles,READ,article,,,None,None,None,None
+175,present me the list of articles,READ,article,{'list': 'articles'},,None,None,None,None
+176,delete all articles with year=2019,DELETE,article,{'year': '2019'},,{'year': 'year'},{},article,DELETE
+177,"please, add a pokemon with name=""pikachu""",ADD,pokemon,{'name': 'Pikachu'},,{'name': 'name'},{},pokemon,ADD
+178,get pokemon,READ,pokemon,,,{},{},pokemon,READ
+179,"update the pokemon with name ""pikachu"" and set its type=""electric""",UPDATE,pokemon,{'type': 'Electric'},{'name': 'pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+180,"update a pokemon with name=""pikachu"" by adding ""evolve_to""=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+181,"update a pokemon with name=""pikachu"" by setting ""evolve_to""=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+182,"update the pokemon with name=""pikachu"", setting ""evolve_to""=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+183,"update a pokemon with name=""pikachu"" by setting evolve_to=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+184,"update the pokemon with name=""pikachu"", setting evolve_to=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+185,"update the pokemon with name=""pikachu"", setting evolveto=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{},None,pokemon,UPDATE
+186,"update the pokemon with name ""pikachu"", setting evolve_to=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{},None,pokemon,UPDATE
+187,"update the pokemon with name ""pikachu"", setting evolveto=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{},None,pokemon,UPDATE
+188,"update the pokemon with name=""pikachu"", setting the evolveto=""raichu""",UPDATE,pokemon,{'evolveto': 'Raichu'},{'name': 'Pikachu'},"{'name': 'name', 'pokemon': 'pikachu'}",{},pokemon,UPDATE
+189,"update the pokemon with id=1, setting the evolveto=""raichu""",UPDATE,pokemon,{'evolveto': 'Raichu'},{'id': '1'},"{'evolveto': 'evolveto', 'raichu': 'evolveto'}",{'id': 'id'},pokemon,UPDATE
+190,"update the pokemon with name=""pikachu"", setting the evolution=""raichu""",UPDATE,pokemon,{'evolution': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+191,"get pokemon with name=""pikachu""",READ,pokemon,{'name': 'Pikachu'},,{'name': 'name'},{},pokemon,READ
+192,get pokemon with name pikachu,READ,pokemon,{'name': 'Pikachu'},,{'name': 'name'},{},pokemon,READ
+193,"add a pokemon with name=""eevee"" and type=""normal""",ADD,pokemon,"{'name': 'Eevee', 'type': 'Normal'}",,"{'pokemon': 'pokemon', 'name': 'name', 'eevee': 'eevee'}",{},eevee,ADD
+194,view pokemon,READ,pokemon,,,{},{},pokemon,READ
+195,show me all pokemon,READ,pokemon,,,{},{},pokemon,READ
+196,"delete the pokemon with name=""eevee""",DELETE,pokemon,{'name': 'Eevee'},,{'name': 'name'},{},pokemon,DELETE
+197,get pokemons,READ,pokemon,,,{},{},pokemon,READ
+198,show me all article,READ,article,,,{},{},article,READ
+199,"add an article with title ""dragonfly""",ADD,article,{'title': 'Dragonfly'},,{'title': 'title'},{},dragonfly,ADD
+200,"update the article with id=7, setting the year=2020.",UPDATE,article,{'year': '2020'},{'id': '7'},{'year': 'year'},{'id': 'id'},article,UPDATE
+201,"update the article with id=7, setting the year1=2020",UPDATE,article,{'year1': '2020'},{'id': '7'},{'year1': 'year1'},{'id': 'id'},article,UPDATE
+202,delete all articles with year=2020,DELETE,article,{'year': '2020'},,{'year': 'year'},{},article,DELETE
+203,"i would like to add an article named ""advances in natural language processing"" and author=julia hirschberg and christopher d. manning",ADD,article,"{'name': 'advances in natural language processing', 'author': 'JULIA HIRSCHBERG and CHRISTOPHER D. MANNING'}",,None,None,None,None
+204,"add article named ""advances in natural language processing"" and author=julia hirschberg and christopher d. manning",ADD,article,"{'name': 'advances in natural language processing', 'author': 'JULIA HIRSCHBERG and CHRISTOPHER D. MANNING'}",,"{'article': 'article', 'manning': 'advances'}",{},Advances_in_Natural_Language_Processing,ADD
+205,"i would like to add an article with name ""advances in natural language processing"" and author=julia hirschberg and co-author= christopher d. manning",ADD,article,"{'name': 'Advances in natural language processing', 'author': 'JULIA HIRSCHBERG', 'co_author': 'CHRISTOPHER D. MANNING'}",,None,None,None,None
+206,"add article with name ""advances in natural language processing"" and author=julia hirschberg and co-author= christopher d. manning",ADD,article,"{'name': 'Advances in natural language processing', 'author': 'JULIA HIRSCHBERG', 'co_author': 'CHRISTOPHER D. MANNING'}",,"{'article': 'article', 'name': 'name', 'manning': 'advances'}",{},Advances_in_Natural_Language_Processing,ADD
+207,"add an article with name ""advances in natural language processing"", author=julia hirschberg, co-author= christopher d. manning",ADD,article,"{'name': 'Advances in natural language processing', 'author': 'JULIA HIRSCHBERG', 'co_author': 'CHRISTOPHER D. MANNING'}",,"{'article': 'article', 'name': 'name', 'manning': 'advances'}",{},advances_in_natural_language_processing,ADD
+208,"add article with name ""advances in natural language processing"", author=julia hirschberg, co-author= christopher d. manning",ADD,article,"{'name': 'Advances in natural language processing', 'author': 'JULIA HIRSCHBERG', 'co_author': 'CHRISTOPHER D. MANNING'}",,"{'article': 'article', 'name': 'name', 'manning': 'advances'}",{},advances_in_natural_language_processing,ADD
+209,show me all authors,READ,authors,,,{'authors': 'authors'},{},authors,READ
+210,add an article with title='dome: a reference architecture',ADD,article,{'title': 'DoME: A Reference Architecture'},,"{'title': 'title', ""'"": 'dome'}",{},Dome__A_Reference_Architecture,ADD
+211,show me article,READ,article,,,{},{},article,READ
+212,update the article with id=8 setting the year=2015,UPDATE,article,{'year': '2015'},{'id': '8'},{'year': 'year'},{'id': 'id'},article,UPDATE
+213,"update the article with id=8 setting name="""" and title=""advances in natural language processing""",UPDATE,article,"{'name': '', 'title': 'Advances in natural language processing'}",{'id': '8'},"{'setting': 'name=""', 'title': 'title', 'advances': 'advances', 'natural_language': 'natural language'}",{'id': 'id'},article,UPDATE
+214,"update the article with id=8 setting title=""advances in natural language processing""",UPDATE,article,{'title': 'Advances in natural language processing'},{'id': '8'},"{'setting': 'title=""advances in natural language processing'}",{'id': 'id'},article,UPDATE
+215,show me articles with year=2015,READ,article,{'year': '2015'},,"{'articles': 'articles', 'year': 'year'}",{},2015,READ
+216,"update the article with id=8 setting the title=""advances in natural language processing""",UPDATE,article,{'title': 'Advances in natural language processing'},{'id': '8'},"{'title': 'title', 'advances': 'advances', 'natural_language': 'natural language'}",{'id': 'id'},article,UPDATE
+217,show me articles where yaer=2015,READ,article,,,{'articles': 'articles'},{},yaer,READ
+218,show me articles where year=2015,READ,article,{'year': '2015'},,"{'articles': 'articles', 'year': 'year'}",{},2015,READ
+219,delete the attribute name  from article,DELETE,attribute,{'attribute': 'name'},,{'attribute': 'name'},{},article,DELETE
+220,delete name from article,DELETE,article,{'name': 'article'},,{'name': 'name'},{},article,DELETE
+221,"update the article with id=8 setting the name=""""",UPDATE,article,{'name': ''},{'id': '8'},{'name': 'name'},{'id': 'id'},article,UPDATE
+222,"update the article with id=8 setting the name="" """,UPDATE,article,{'name': ' '},{'id': '8'},{'name': 'name'},{'id': 'id'},article,UPDATE
+223,"update the article with id=8 setting the name=a""""",UPDATE,article,{'name': 'a'},{'id': '8'},{'name': 'name'},{'id': 'id'},article,UPDATE
+224,update the article with id=8 setting the name=null,UPDATE,article,{'name': 'null'},{'id': '8'},{'name': 'name'},{'id': 'id'},article,UPDATE
+225,update the article with id=8 deleting the name,UPDATE,article,{'name': ''},{'id': '8'},{'name': 'name'},{'id': 'id'},article,UPDATE
+226,delete the article with id=9,DELETE,article,{'id': '9'},,{'id': 'id'},{},article,DELETE
+227,"add a article with name ""experimental framework to simulate rescue operations after a natural disaster"" and keywords= experimental framework, simulation, benchmark",ADD,article,"{'name': 'Experimental Framework to Simulate Rescue Operations after a Natural Disaster', 'keywords': 'Experimental framework, Simulation, Benchmark'}",,"{'name': 'name', 'rescue': 'name', 'operations': 'operations', 'natural_disaster': 'natural disaster', 'keywords': 'name', 'experimental_framework': 'experimental framework', 'simulation': 'simulation', 'benchmark': 'simulation'}",{},experimental_framework,ADD
+228,"update the article with name ""experimental framework, simulation, benchmark"" setting year=2020",UPDATE,article,{'year': '2020'},"{'name': 'Experimental framework, Simulation, Benchmark'}","{'experimental_framework': 'simulation', 'benchmark': 'simulation', 'year': 'year'}",{'article': 'name'},experimental_framework__simulation__benchmark,UPDATE
+229,"update the article with name ""experimental framework to simulate rescue operations after a natural disaster"" setting year=2020",UPDATE,article,{'year': '2020'},{'name': 'Experimental framework to simulate rescue operations after a natural disaster'},{'setting': 'year=2020'},"{'name': 'name', 'experimental_framework': 'experimental framework', 'rescue': 'name', 'operations': 'operations', 'natural_disaster': 'natural disaster'}",experimental_framework_to_simulate_rescue_operations_after_a_natural_disaster,UPDATE
+230,"update the article with name=""experimental framework to simulate rescue operations after a natural disaster"" setting year=2020",UPDATE,article,{'year': '2020'},{'name': 'Experimental framework to simulate rescue operations after a natural disaster'},{},None,experimental_framework,UPDATE
+231,update the article with name=experimental framework to simulate rescue operations after a natural disaster setting the year=2020,UPDATE,article,{'year': '2020'},{'name': 'Experimental framework to simulate rescue operations after a natural disaster'},{'natural_disaster': 'year=2020'},"{'name': 'name', 'rescue': 'name', 'operations': 'operations'}",experimental_framework,UPDATE
+232,"update the article with keywords ""experimental framework, simulation, benchmark"" setting the year=2020",UPDATE,article,{'year': '2020'},"{'keywords': 'Experimental framework, Simulation, Benchmark'}",{},None,year_2020,UPDATE
+233,show me articles where year > 2013,READ,article,{'year': '2013'},,"{'articles': 'articles', 'year': 'year'}",{},2013,READ
+234,show me articles where year != 2015,READ,article,{'year': '2015'},,"{'articles': 'articles', 'year': 'year'}",{},2015,READ
+235,show articles with id > 6,READ,article,{'id': '6'},,{'id': 'id'},{},article,READ
+236,show me articles with id=9,READ,article,{'id': '9'},,{'id': 'id'},{},article,READ
+237,show me article where id > 6,READ,article,{'id': '6'},,{'id': 'id'},{},article,READ
+238,show me article where id = 6,READ,article,{'id': '6'},,{'id': 'id'},{},article,READ
+239,show me article where id=9,READ,article,{'id': '9'},,{'id': 'id'},{},article,READ
+240,show me article where id=10,READ,article,{'id': '10'},,{'id': 'id'},{},article,READ
+241,add city with name=fortaleza and state=ceará,ADD,city,"{'name': 'Fortaleza', 'state': 'Ceará'}",,"{'name': 'name', 'city': 'fortaleza'}",{},city,ADD
+242,"add city with name=berlin, country=germany, population=3.645 million",ADD,city,"{'name': 'Berlin', 'country': 'Germany', 'population': '3.645 million'}",,"{'city': 'city', 'name': 'name', 'germany': 'berlin'}",{},germany,ADD
+243,show me city,READ,city,,,{},{},city,READ
+244,delete all cities,DELETE,city,,,{},{},city,DELETE
+245,delete city where id=1 and id=2,DELETE,city,{'id': '1'},,{'id': 'id'},{},city,DELETE
+246,delete city where id-2,DELETE,city,,,{'city': 'city'},{},city,DELETE
+247,delete city where id=2,DELETE,city,{'id': '2'},,{'id': 'id'},{},city,DELETE
+248,add city with name= teste and number=1,ADD,city,"{'name': 'teste', 'number': '1'}",,{'city': 'number'},{},teste,ADD
+249,add city with name= teste and number=2,ADD,city,"{'name': 'teste', 'number': '2'}",,{'city': 'number=2'},{},teste,ADD
+250,delete city where name=teste,DELETE,city,{'name': 'teste'},,"{'name': 'name', 'teste': 'name'}",{},city,DELETE
+251,"delete city where name=""teste""",DELETE,city,{'name': 'teste'},,{'city': 'city'},{},city,DELETE
+252,delete city where number=1,DELETE,city,{'number': '1'},,{'city': 'city'},{},city,DELETE
+253,delete all city with name=teste,DELETE,city,{'name': 'teste'},,"{'name': 'name', 'teste': 'name'}",{},city,DELETE
+254,"delete all city with name=""teste""",DELETE,city,{'name': 'teste'},,"{'name': 'name', 'teste': 'name'}",{},city,DELETE
+255,delete all city where number=1,DELETE,city,{'number': '1'},,{'number': 'number'},{},city,DELETE
+256,delete city where id=4,DELETE,city,{'id': '4'},,{'id': 'id'},{},city,DELETE
+257,delete city where name=fortaleza,DELETE,city,{'name': 'Fortaleza'},,{'name': 'name'},{},city,DELETE
+258,add city with name fortaleza and state=ceará,ADD,city,"{'name': 'Fortaleza', 'state': 'Ceará'}",,"{'name': 'name', 'city': 'fortaleza'}",{},city,ADD
+259,"add city with name ""fortaleza"" and state=ceará",ADD,city,"{'name': 'Fortaleza', 'state': 'Ceará'}",,"{'name': 'name', 'city': 'fortaleza'}",{},city,ADD
+260,delete city where state=ceará,DELETE,city,{'state': 'Ceará'},,{'city': 'city'},{},city,DELETE
+261,"delete city where state=""ceará""",DELETE,city,{'state': 'Ceará'},,{'city': 'city'},{},city,DELETE
+262,show pokemons,READ,pokemon,,,{},{},pokemon,READ
+263,"delete city where name=""fortaleza""",DELETE,city,{'name': 'Fortaleza'},,{'city': 'city'},{},city,DELETE
+264,show me pokemons,READ,pokemon,,,{},{},pokemon,READ
+265,get city,READ,city,,,{},{},city,READ
+266,"update a pokemon with name=""pikachu"" by setting evolve to=""raichu""",UPDATE,pokemon,{'evolve_to': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+267,delete city where id=8,DELETE,city,{'id': '8'},,{'city': 'city'},{},city,DELETE
+268,"update a pokemon with name=""pikachu"" by setting evolvution =""raichu""",UPDATE,pokemon,{'evolvution': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+269,delete all city where name=fortaleza,DELETE,city,{'name': 'Fortaleza'},,"{'name': 'name', 'fortaleza': 'name'}",{},city,DELETE
+270,"update a pokemon with name=""pikachu"" by setting evolution to=""raichu""",UPDATE,pokemon,{'evolution': 'Raichu'},{'name': 'Pikachu'},{'pokemon': 'pikachu'},{'name': 'name'},pokemon,UPDATE
+271,view all pokemons,READ,pokemon,,,{},{},pokemon,READ
+272,view the pokemon,READ,pokemon,,,{},{},pokemon,READ
+273,"add article with title ""v-measure: a conditional entropy-based external cluster evaluation measure"", author ""v-measure: a conditional entropy-based external cluster evaluation measure"", co-author ""andrew rosenberg"" and year=2007",ADD,article,"{'title': 'V-measure: A conditional entropy-based external cluster evaluation measure', 'author': 'Andrew Rosenberg', 'year': '2007'}",,"{'title': 'v-measure: a conditional entropy-based external cluster evaluation measure', 'author': 'author', '2007': 'rosenberg'}",{},v_measure__a_conditional_entropy_based_external_cluster_evaluation_measure,ADD
+274,"add article with title ""v-measure: a conditional entropy-based external cluster evaluation measure"", author=""julia hirschberg"", co-author=""andrew rosenberg"" and year=2007",ADD,article,"{'title': 'V-measure: A conditional entropy-based external cluster evaluation measure', 'author': 'JULIA HIRSCHBERG', 'co_author': 'Andrew Rosenberg', 'year': '2007'}",,"{'title': 'v-measure: a conditional entropy-based external cluster evaluation measure', 'author': 'author', 'v-measure': 'rosenberg'}",{},v_measure,ADD
+275,"add an article with title=""v-measure: a conditional entropy-based external cluster evaluation measure"", author=""julia hirschberg"", co-author=""andrew rosenberg"" , year=2007",ADD,article,"{'title': 'V-measure: A conditional entropy-based external cluster evaluation measure', 'author': 'JULIA HIRSCHBERG', 'co_author': 'Andrew Rosenberg', 'year': '2007'}",,"{'title': 'v-measure: a conditional entropy-based external cluster evaluation measure', 'author': 'author', 'v-measure': 'rosenberg'}",{},v_measure,ADD
+276,"add article with title ""v-measure: a conditional entropy-based external cluster evaluation measure"", author=""julia hirschberg""",ADD,article,"{'title': 'V-measure: A conditional entropy-based external cluster evaluation measure', 'author': 'JULIA HIRSCHBERG'}",,"{'title': 'v-measure: a conditional entropy-based external cluster evaluation measure', 'author': 'author'}",{},v_measure,ADD
+277,"update the article where title=""v-measure: a conditional entropy-based external cluster evaluation measure"" setting  co-author=""andrew rosenberg""",UPDATE,article,{'co_author': 'Andrew Rosenberg'},{'title': 'V-measure: A conditional entropy-based external cluster evaluation measure'},"{'article': 'article', 'title': 'article', 'evaluation': 'evaluation', 'measure': 'evaluation', 'setting': 'evaluation', 'co_author': 'co-author'}",{'external_cluster': 'conditional entropy-based'},v_measure,UPDATE
+278,"update article with id=11 setting co-author=""andrew rosenberg"" and year=2007",UPDATE,article,"{'co_author': 'Andrew Rosenberg', 'year': '2007'}",{'id': '11'},None,None,None,None
+279,"update article where id=11 setting co-author=""andrew rosenberg""",UPDATE,article,{'co_author': 'Andrew Rosenberg'},{'id': '11'},None,None,None,None
+280,"update the article with id=11 setting co-author=""andrew rosenberg"" and year=2007",UPDATE,article,"{'co_author': 'Andrew Rosenberg', 'year': '2007'}",{'id': '11'},"{'setting': 'setting', 'co_author': 'co-author', 'article': 'rosenberg'}",{'id': 'id'},article,UPDATE
+281,"update the article with id=11 setting co-author=""andrew rosenberg""",UPDATE,article,{'co-author': 'ANDREW ROSENBERG'},{'id': '11'},"{'setting': 'co-author=""andrew rosenberg'}",{'id': 'id'},article,UPDATE
+282,"update the article with id=11, setting coauthor=""andrew rosenberg""",UPDATE,article,{'coauthor': 'ANDREW ROSENBERG'},{'id': '11'},{'coauthor': 'andrew rosenberg'},{'id': 'id'},article,UPDATE
+283,"update the article with author=""julia hirschberg"", setting the year=2007",UPDATE,article,{'year': '2007'},{'author': 'JULIA HIRSCHBERG'},"{'author': 'author', 'article': 'hirschberg'}",{},article,UPDATE
+284,"update the article with id=11, setting the year=2007",UPDATE,article,{'year': '2007'},{'id': '11'},{'year': 'year'},{'id': 'id'},article,UPDATE
+285,"delete all articles where author=""julia hirschberg""",DELETE,article,{'author': 'JULIA HIRSCHBERG'},,{'author': 'author'},{},article,DELETE
+286,add a pokemon with name='squid',ADD,pokemon,{'name': 'Squid'},,"{'name': 'name', 'squid': 'name'}",{},pokemon,ADD
+287,get all pokemons,READ,pokemon,,,{},{},pokemon,READ
+288,get student with name=itamar,READ,student,{'name': 'Itamar'},,"{'student': 'student', 'name': 'name'}",{},i,READ
+289,list all students,READ,student,,,{'students': 'students'},{},st_,READ
+290,add an article with title='dome: a domesticated movie experiment',ADD,article,{'title': 'DoME: A Domesticated Movie Experiment'},,"{'title': 'title', ""'"": 'dome'}",{},a_domesticated_movie_experiment,ADD
+291,"update the article with id=1, setting the year=3021",UPDATE,article,{'year': '3021'},{'id': '1'},{'year': 'year'},{'id': 'id'},article,UPDATE
+292,show the model,READ,model,,,{'model': 'model'},{},e_model,READ
+293,"update all articles with year=3021, setting the author='bill gates'",UPDATE,article,{'author': 'Bill Gates'},{'year': '3021'},{'author': 'author'},{'articles': 'year'},Articles,UPDATE
+294,get articles when year=3021,READ,article,{'year': '3021'},,{'year': 'year'},{},article,READ
+295,add student with name='bill' and lastname='gates',ADD,student,"{'name': 'Bill', 'lastname': 'Gates'}",,"{'student': 'student', 'name': 'name', 'gates': 'name'}",{},edward_gates,ADD
+296,"add article with title=""dome: day of my enlightenment"" and publisher=""the matrix""",ADD,article,"{'title': 'DoME: Day of My Enlightenment', 'publisher': 'The Matrix'}",,"{'title': 'title', 'publisher': 'dome'}",{},publisher,ADD
+297,add an article with title='dome: day of my enlightenment' and publisher='the matrix',ADD,article,"{'title': 'DoME: Day of My Enlightenment', 'publisher': 'The Matrix'}",,"{'title': 'title', ""'"": 'dome'}",{},e_book,ADD
+298,add an article with title='dome: day of my enlightenment',ADD,article,{'title': 'DoME: Day of My Enlightenment'},,"{'title': 'title', ""'"": 'dome'}",{},e_book,ADD
+299,"update article with id=2, setting publisher='the matrix'",UPDATE,article,{'publisher': 'The Matrix'},{'id': '2'},"{'publisher': 'publisher', 'matrix': 'publisher'}",{'id': 'id'},article,UPDATE
+300,"update article with id=2, setting year=2222",UPDATE,article,{'year': '2222'},{'id': '2'},{'year': 'year'},{'id': 'id'},article,UPDATE
+301,"update article with id=2, setting circulation=10000",UPDATE,article,{'circulation': '10000'},{'id': '2'},{'circulation': 'circulation'},{'id': 'id'},id_2,UPDATE
+302,add student with name='daniel' and lastname='burns',ADD,student,"{'name': 'Daniel', 'lastname': 'Burns'}",,"{'student': 'student', 'name': 'name'}",{},daniel_burns,ADD
+303,"add goblin with title='streaming services' and text='netflix, amazon prime, disney+, star+'",ADD,goblin,"{'title': 'Streaming services', 'text': 'Netflix, Amazon Prime, Disney+, Star+'}",,"{""'"": 'goblin'}",{},streaming_services,ADD
+304,list my goblins,READ,goblins,,,{},{},goblins,READ
+305,get goblins,READ,goblins,,,{},{},goblins,READ
+306,get streamings,READ,streaming,,,{},{},Streamings,READ
+307,add klingon with name='gowron',ADD,klingon,{'name': 'gowron'},,{'klingon': 'klingon'},{},klingon,ADD
+308,kill all klingons,DELETE,klingon,,,{},{},klingons,DELETE
+309,add equipment with name = 'engine' and sector = 'generators',ADD,equipment,"{'name': 'Engine', 'sector': 'Generators'}",,"{'equipment': 'engine', 'sector': 'sector', 'generators': 'generators'}",{},Engine,ADD
+310,"add equipment with name = 'furnace', sector = 'metal shaping' and manager = 'anderson smith'",ADD,equipment,"{'name': 'Furnace', 'sector': 'Metal shaping', 'manager': 'Anderson Smith'}",,"{'name': 'name', 'furnace': 'name', 'sector': 'name', 'metal': 'metal', 'shaping': 'metal', 'manager': 'manager'}",{},metal_shaping,ADD
+311,list equipment,READ,equipment,,,{'equipment': 'equipment'},{},tv,READ
+312,"list equipment, filtering by name starting with 'en'",READ,equipment,{'name': 'En'},,None,None,None,None
+313,"for the equipment with name = 'furnace', change manager to 'jane cooper'",UPDATE,equipment,{'manager': 'Jane Cooper'},{'name': 'Furnace'},{},None,jane_cooper,UPDATE
+314,please delete equipment whose sector is 'generators',DELETE,equipment,{'sector': 'Generators'},,"{'sector': 'sector', 'generators': 'sector'}",{},equipment,DELETE
+315,add person with name='chuck',ADD,person,{'name': 'chuck'},,"{'person': 'person', 'name': 'name'}",{},chuck,ADD
+316,get all persons,READ,person,,,{},{},person,READ
+317,get all person with name chuck,READ,person,{'name': 'chuck'},,"{'person': 'person', 'name': 'name'}",{},chuck,READ
+318,add an article with title='quantum machine learning',ADD,article,{'title': 'Quantum Machine Learning'},,"{""'"": 'quantum'}",{},Quantum_machine_learning,ADD
+319,"update the article with id=1, setting the year=2021.",UPDATE,article,{'year': '2021'},{'id': '1'},{'year': 'year'},{'id': 'id'},article,UPDATE
+320,delete all articles with year=2021.,DELETE,article,{'year': '2021'},,{'year': 'year'},{},article,DELETE
+321,add show with name=paul di'anno,ADD,show,"{'name': ""Paul Di'Anno""}",,{'name': 'name'},{},show,ADD
+322,show me the results,READ,results,,,{'results': 'result'},{},a,READ
+323,get all shows_,READ,show,,,{'shows': 'shows'},{},tv,READ
+324,get the show_,READ,show,,,{'show': 'show'},{},adobe,READ
+325,show me all shows_,READ,show,,,{'shows': 'shows'},{},tv,READ
+326,show me all show_,READ,show,,,{'show': 'show'},{},a,READ
+327,show me the shows_,READ,show,,,{'shows': 'shows_'},{},tv,READ
+328,show shows_,READ,show,,,"{'show': 'show', 'shows': 'show'}",{},tv,DELETE
+329,show students or whatever,READ,student,,,{'students': 'students'},{},e_mail,READ
+330,add student joão daniel,ADD,student,{'name': 'João Daniel'},,{'student': 'student'},{},joo_daniel,ADD
+331,show me all shows,READ,show,,,{'shows': 'shows'},{},tv,READ
+332,add class with name=“estrutura de dados”,ADD,class,{'name': 'estrutura de dados'},,"{'class': 'class', 'name': 'name', 'estrutura': 'name', 'dados': 'dados'}",{},estrutura_de_dados,ADD
+333,add student with name joão daniel,ADD,student,{'name': 'João Daniel'},,"{'student': 'student', 'name': 'name'}",{},joo_daniel,ADD
+334,add class with name=‘estrutura de dados’,ADD,class,{'name': 'estrutura de dados'},,"{'class': 'class', 'name': 'name', 'estrutura': 'name', 'dados': 'dados'}",{},estructura_de_dados,ADD
+335,add class with name=estrutura de dados,ADD,class,{'name': 'estrutura de dados'},,"{'class': 'class', 'name': 'name', 'estrutura': 'name', 'dados': 'dados'}",{},estrutura_de_dados,ADD
+336,"add student with name = ""joão daniel""",ADD,student,{'name': 'João Daniel'},,"{'student': 'student', 'name': 'name'}",{},joo_daniel,ADD
+337,add student with name = 'joão daniel',ADD,student,{'name': 'João Daniel'},,"{'student': 'student', 'name': 'name'}",{},joo_daniel,ADD
+338,add student with name = 'joao daniel',ADD,student,{'name': 'Joao Daniel'},,"{'student': 'student', 'name': 'name'}",{},joao_daniel,ADD
+339,add student with name=‘estrutura de dados’,ADD,student,{'name': 'estrutura de dados'},,"{'student': 'student', 'name': 'name', 'estrutura': 'name'}",{},dados,ADD
+340,"plese, show students",READ,student,,,{'students': 'plese'},{},Plese,READ
+341,would you please show students,READ,student,,,{'students': 'students'},{},e_mail,READ
+342,would you please show me students,READ,student,,,{'students': 'students'},{},edmund,READ
+343,would you please show me all students you have,READ,student,,,{'students': 'you have'},{},st_,READ
+344,delete a show with name=paul dianno,DELETE,show,{'name': 'Paul DiAnno'},,{'name': 'name'},{},show,DELETE
+345,include student with name=alinson,ADD,student,{'name': 'Alinson'},,"{'student': 'student', 'name': 'name'}",{},alumnus,ADD
+346,show me shows,READ,show,,,{'shows': 'shows'},{},show_me_shows,READ
+347,add a show with name = paul di'anno and date = 01/27/2023,ADD,show,"{'name': ""Paul Di'Anno"", 'date': '01/27/2023'}",,"{'name': 'name', 'show': 'anno'}",{},show,ADD
+348,"update the article with id=4, setting the email=alinson.donato@gmail.com",UPDATE,article,{'email': 'alinson.donato@gmail.com'},{'id': '4'},"{'email': 'email', '_': ''}",{'id': 'id'},article,UPDATE
+349,get student with id=4,READ,student,{'id': '4'},,{'student': 'student'},{},id,READ
+350,"add show with name = renegados, and date = 01/28/2023 and place = centro cultural bnb",ADD,show,"{'name': 'Renegados', 'date': '01/28/2023', 'place': 'Centro Cultural BNB'}",,"{'show': 'show', 'name': 'name', 'date': 'date', 'place': 'place'}",{},renegados,ADD
+351,get student with email=alinson.donato@gmail.com,READ,student,{'email': 'alinson.donato@gmail.com'},,"{'student': 'student', 'email': 'email', '_': ''}",{},e_mail,READ
+352,"update the student with id=4, setting the email=alinson.donato@gmail.com",UPDATE,student,{'email': 'alinson.donato@gmail.com'},{'id': '4'},"{'student': 'student', 'id': 'id'}","{'email': 'email', '_': ''}",e_mail,UPDATE
+353,"add show with name = metallica, and date = 02/30/2023 and place = castelao",ADD,show,"{'name': 'Metallica', 'date': '02/30/2023', 'place': 'Castelao'}",,"{'show': 'name', 'metallica': 'metallica'}",{},metallica,ADD
+354,add student with name=donato,ADD,student,{'name': 'Donato'},,"{'student': 'student', 'name': 'name', 'donato': 'name'}",{},adolescent,ADD
+355,"add student with name=donato, email=alinson.donato@prf.gov.br",ADD,student,"{'name': 'Donato', 'email': 'alinson.donato@prf.gov.br'}",,"{'student': 'student', 'name': 'name', 'donato': 'name', 'email': 'name', '_': ''}",{},e_mail,ADD
+356,delete the student with email=alinson.donato@prf.gov.br,DELETE,student,{'email': 'alinson.donato@prf.gov.br'},,"{'email': 'email', '_': ''}",{},student,DELETE
+357,update the student with name=alinson with name=alinson donato,UPDATE,student,{'name': 'Alinson Donato'},{'name': 'Alinson'},{},None,alanson_donato,UPDATE
+358,"create student with name="" or 1=1); drop table students; --""",ADD,student,"{'name': 'or 1=1)', 'table': 'STUDENTS'}",,"{'student': 'student', 'students': 'students'}",{},table_students,ADD
+359,"update a show with name metallica, replace date with 10/22/2024",UPDATE,show,{'date': '10/22/2024'},{'name': 'metallica'},"{'show': 'show', 'name': 'name', 'metallica': 'metallica'}",{},metallica,UPDATE
+360,get all shows,READ,show,,,{'shows': 'shows'},{},tv,READ
+361,"create student with name="" or 1=1}; drop table students; --""",ADD,student,"{'name': '1=1', 'table': 'STUDENTS'}",,"{'student': 'student', 'students': 'students'}",{},table_students,ADD
+362,"create student with name=""' or 1=1; drop table students; --""",ADD,student,"{'name': '1=1', 'table': 'STUDENTS'}",,"{'student': 'student', 'students': 'students'}",{},table_students,ADD
+363,"create student with name=""' or 1=1; drop table student; --""",ADD,student,"{'name': '1=1', 'table': 'STUDENT'}",,{'student': 'student'},{},table_student,ADD
+364,"add an article with title='experimental framework, simulation, benchmark'",ADD,article,"{'title': 'Experimental framework, Simulation, Benchmark'}",,"{'simulation': 'simulation', 'benchmark': 'simulation'}",{},experimental_framework,ADD
+365,create student with name=' or 1=1; drop table students; --',ADD,student,"{'name': '1=1', 'table': 'STUDENTS'}",,"{'student': 'student', 'students': 'students'}",{},table_students,ADD
+366,"update the article with id=1, setting the
+year=2020",UPDATE,article,{'year': '2020'},{'id': '1'},{'year': 'year'},{'id': 'id'},article,UPDATE
+367,"update the article with id=2, setting the
+author='zé das couves'",UPDATE,article,{'author': 'Zé das Couves'},{'id': '2'},"{'author': 'author', 'article': 'ze'}",{'id': 'id'},article,UPDATE
+368,"update the article with id=3, setting the
+year=2020",UPDATE,article,{'year': '2020'},{'id': '3'},{'year': 'year'},{'id': 'id'},article,UPDATE
+369,"create student with name=""robert'); drop table students; --""",ADD,student,"{'name': 'Robert', 'table': 'STUDENTS'}",,"{'student': 'student', 'students': 'students'}",{},table_students,ADD
+370,"create student with name=""robert' and 1=1); drop table students; --""",ADD,student,"{'name': 'Robert', 'table': 'STUDENTS'}",,"{'student': 'student', 'students': 'students'}",{},table_students,ADD
+371,"create student with email=""alinson.donato@gmail.com' and 1=1); drop table students; --""",ADD,student,"{'email': 'alinson.donato@gmail.com', 'table': 'STUDENTS'}",,"{'student': 'student', 'students': 'students'}",{},drop_table_students,ADD
+372,"create student with email=""alinson.donato@gmail.com' and 1=1); drop database managedsys_web; --""",ADD,student,"{'email': 'alinson.donato@gmail.com', 'database': 'MANAGEDSYS_WEB'}",,"{'student': 'student', '_': '', 'managedsys_web': 'com'}",{},managedsys_web,ADD
+373,create student with email=amg@gmail.com,ADD,student,{'email': 'amg@gmail.com'},,"{'student': 'student', 'email': 'email', '_': ''}",{},e_mail,ADD
+374,show tables,READ,tables,,,None,None,None,None
+376,add sku with name='john doe',ADD,sku,{'name': 'John Doe'},,{'name': 'name'},{},sku,ADD
+377,show skus,READ,sku,,,{'show': 'show'},{},sku,DELETE
+378,add elf with name='galadriel' and type='forest',ADD,elf,"{'name': 'Galadriel', 'type': 'Forest'}",,"{'elf': 'elf', 'name': 'name', 'forest': 'galadriel'}",{},forest,ADD
+379,"add elf with name='galadriel', type='forest', age='1247', ringtype='water' and power='perception'",ADD,elf,"{'name': 'Galadriel', 'type': 'Forest', 'age': '1247', 'ringtype': 'Water', 'power': 'Perception'}",,"{'name': 'name', 'elf': 'galadriel'}",{},elf,ADD
+380,"add elf with name='galadriel', type='forest', age='1247', ringtype='water', power='perception'",ADD,elf,"{'name': 'Galadriel', 'type': 'Forest', 'age': '1247', 'ringtype': 'Water', 'power': 'Perception'}",,"{'name': 'name', 'elf': 'galadriel'}",{},elf,ADD
+381,"add elf with name='galadriel', type='forest', age='1247', power='perception'",ADD,elf,"{'name': 'Galadriel', 'type': 'Forest', 'age': '1247', 'power': 'Perception'}",,"{'name': 'name', 'elf': 'galadriel'}",{},elf,ADD
+382,"add elf with name='galadriel', type='forest', age='1247', ring type='water' and power='perception'",ADD,elf,"{'name': 'Galadriel', 'type': 'Forest', 'age': '1247', 'ring': ""type='Water' and power='Perception""}",,"{'name': 'name', 'elf': 'galadriel'}",{},elf,ADD
+383,"add elf with name=galadriel, type=forest, age=1247, ringtype=water and power=perception",ADD,elf,"{'name': 'Galadriel', 'type': 'Forest', 'age': '1247', 'ringtype': 'Water', 'power': 'Perception'}",,"{'name': 'name', 'galadriel': 'name', 'type': 'type', 'water': 'name', 'power': 'name', 'perception': 'perception'}",{},elf,ADD
+384,get student with name=eliakim',READ,student,{'name': 'Eliakim'},,"{'student': 'student', 'name': 'name'}",{},eliakim,READ
+385,include student with name=anderson,ADD,student,{'name': 'Anderson'},,"{'student': 'student', 'name': 'name'}",{},anderson,ADD
+386,include student with name=eliakim,ADD,student,{'name': 'Eliakim'},,"{'student': 'student', 'name': 'name'}",{},eliakim,ADD
+387,list students,READ,student,,,{'students': 'students'},{},academies,READ
+388,add an article with title = 'análise sobre a ausência de aula prática no ensino da disciplina de ciências biológicas',ADD,article,{'title': 'análise sobre a ausência de aula prática no ensino da disciplina de ciências biológicas'},,{'title': 'análise sobre a ausência de aula prática no'},{},ci_ncias_biol_gicas,ADD
+389,add an article with title = 'crop: linking code reviews to source code changes',ADD,article,{'title': 'CROP: Linking Code Reviews to Source Code Changes'},,"{'article': 'title', 'crop': 'article', 'code': 'code', 'changes': 'changes'}",{},crop__linking_code_reviews_to_source_code_changes,ADD
+390,"update the article with id=4, setting the year=2018",UPDATE,article,{'year': '2018'},{'id': '4'},{'year': 'year'},{'id': 'id'},article,UPDATE
+391,delete all articles with year=2018.,DELETE,article,{'year': '2018'},,{'year': 'year'},{},article,DELETE
+392,add an article with title = 'dealing with iot defiant components',ADD,article,{'title': 'Dealing with IoT Defiant Components'},,"{""'"": 'defiant'}",{},iot_defiant_components,ADD
+393,"update the article with id=1, setting the year=2020",UPDATE,article,{'year': '2020'},{'id': '1'},{'year': 'year'},{'id': 'id'},article,UPDATE
+394,"update the article with id=5, setting the author='adrilene fonseca'",UPDATE,article,{'author': 'Adrilene Fonseca'},{'id': '5'},{'author': 'author'},{'id': 'id'},article,UPDATE
+395,delete all articles with author=zé das couves,DELETE,article,{'author': 'Zé das Couves'},,"{'author': 'author', 'couves': 'author'}",{},article,DELETE
+396,add an article with title='behind the intents: an in-depth empirical study on software refactoring in modern code review',ADD,article,{'title': 'Behind the intents: An in-depth empirical study on software refactoring in modern'},,"{'intents': 'intents', 'refactoring': 'refactoring', 'modern_code': 'modern code', 'review': 'review'}",{},software,ADD
+397,"update the article with id=6, setting the
+year=2020",UPDATE,article,{'year': '2020'},{'id': '6'},{'year': 'year'},{'id': 'id'},article,UPDATE
+398,"include student with name=matheus freitas, email=fernandes.matheus@aluno.uece.br",ADD,student,"{'name': 'Matheus Freitas', 'email': 'fernandes.matheus@aluno.uece.b'}",,"{'student': 'student', 'name': 'name', 'br': 'freitas'}",{},e_mail,ADD
+399,show me all student,READ,student,,,{'student': 'student'},{},st,READ
+400,"add an article with title=building microservices: using an api gateway, author=chris richardson",ADD,article,"{'title': 'Building Microservices: Using an API Gateway', 'author': 'Chris Richardson'}",,"{'gateway': 'gateway', 'author': 'author'}",{},api_gateway,ADD
+401,"add an article with title=introduction to microservices, author=chris richardson",ADD,article,"{'title': 'Introduction to MIcroservices', 'author': 'Chris Richardson'}",,"{'title': 'title', 'introduction': 'introduction', 'microservices': 'microservices'}",{},microservices,ADD
+402,"update the article with id=7, setting the year=2018",UPDATE,article,{'year': '2018'},{'id': '7'},{'year': 'year'},{'id': 'id'},article,UPDATE
+403,"add a subject with name=""data structures"" and professor=""ana luiza""",ADD,subject,"{'name': 'Data Structures', 'professor': 'Ana Luiza'}",,"{'name': 'name', 'data': 'name', 'structures': 'name', 'professor': 'name'}",{},data_structures,ADD
+404,"add a subject with name=""data structures"" and professor=""josé negreiros""",ADD,subject,"{'name': 'Data Structures', 'professor': 'José Negreiros'}",,"{'name': 'name', 'data': 'name', 'structures': 'name'}",{},data_structures,ADD
+405,get subject,READ,subject,,,{},{},a,READ
+406,"add a subject with name ""linear algebra"" and professor=""thelmo pontes""",ADD,subject,"{'name': 'Linear Algebra', 'professor': 'Telmo Pontes'}",,"{'name': 'name', '""': 'algebra'}",{},linear_algebra,ADD
+407,"update the subject with name=""linear algebra"", setting professor=""thelmo pontes""",UPDATE,subject,{'professor': 'Thelmo Pontes'},{'name': 'Linear Algebra'},{'professor': 'professor'},{'subject': 'name'},linear_algebra,UPDATE
+408,"update the subject with id=3, setting professor=""thelmo pontes""",UPDATE,subject,{'professor': 'Thelmo Pontes'},{'id': '3'},{'professor': 'professor'},{'subject': 'id'},thelmo_pontes,UPDATE
+409,"update the subject where name=""data structures"", setting semester=""2023.1""",UPDATE,subject,{'name': 'Data Structures'},{'semester': '2023.1'},{},None,data_structures,UPDATE
+410,get subjects,READ,subject,,,{'subjects': 'subject'},{},a,READ
+411,"update the subject with name=""data structures"", setting semester=""2023.1""",UPDATE,subject,{'semester': '2023.1'},{'name': 'Data Structures'},"{'structures': 'data', 'semester': 'semester'}",{'subject': 'name'},2023_1,UPDATE
+413,"update the subject where name=""data structures"", setting the semester=""2023.1""",UPDATE,subject,{'semester': '2023.1'},{'name': 'Data Structures'},{},None,data_structures,UPDATE
+414,"update the subject where semester=""2023.1"", setting name=""data structures""",UPDATE,subject,{'name': 'Data Structures'},{'semester': '2023.1'},{},None,2023_1,UPDATE
+415,add a subject with name='brazilian history',ADD,subject,{'name': 'Brazilian History'},,{'name': 'name'},{},Brazilian_history,ADD
+416,get all subjects,READ,subject,,,{},{},a,READ
+417,"update subject with id=4, setting the main reference to 'brasil, uma história'",UPDATE,subject,"{'main_reference': ""to 'Brasil, uma História""}",{'id': '4'},{'main_reference': 'main reference'},{'id': 'id'},subject,UPDATE
+419,get pizzas,READ,pizza,,,{},{},pizza,READ
+420,add a pizza with flavour='pepperoni',ADD,pizza,{'flavour': 'pepperoni'},,"{'flavour': 'flavour', 'pepperoni': 'flavour'}",{},pizza,ADD
+421,show pizzas,READ,pizza,,,{'show': 'show'},{},pizza,DELETE
+422,add a ice cream with flavour=vanilla,ADD,ice_cream,{'flavour': 'vanilla'},,"{'ice': 'ice', 'cream': 'ice', 'flavour': 'ice'}",{},vanilla,ADD
+423,show ice creams,READ,ice_cream,,,"{'show': 'show', 'ice': 'show', 'creams': 'show'}",{},ice_creams,DELETE
+424,show me all ice cream,READ,ice_cream,,,"{'ice': 'ice', 'cream': 'ice'}",{},ice_cream,READ
+425,add student with name=sergio,ADD,student,{'name': 'Sergio'},,"{'student': 'student', 'name': 'name'}",{},sergio,ADD
+426,show me student where name=sergii,READ,student,{'name': 'sergii'},,{'student': 'where name=sergii'},{},sergii,READ
+427,show me student where name=sergio,READ,student,{'name': 'Sergio'},,"{'student': 'student', 'name': 'name'}",{},sergio,READ
+428,show me student where name=sergio; drop students,READ,student,{'name': 'Sergio'},,"{'student': 'student', 'students': 'students'}",{},sergio,READ
+429,show me student where name='sergio; drop students',READ,student,{'name': 'Sergio'},,"{'student': 'student', 'students': 'students'}",{},sergio,READ
+430,add students where name=injection;drop students,ADD,student,{'name': 'Injection'},,{'students': 'where name=injection;drop students'},{},drop,ADD
+431,add students where name='injection;drop students',ADD,student,{'name': 'Injection;DROP students'},,{'students': 'students'},{},injection,ADD
+432,delete student name=injection,DELETE,student,{'name': 'Injection'},,{'student': 'name=injection'},{},e_mail,DELETE
+433,delete student name='injection;drop students;',DELETE,student,{'name': 'Injection'},,"{'student': ""name='injection;drop students;""}",{},injection,DELETE
+434,delete student name='injection;drop students',DELETE,student,{'name': 'Injection;DROP students'},,"{'student': ""name='injection;drop students""}",{},injection,DELETE
+435,delete student name='--injection;drop students',DELETE,student,{'name': '--Injection;DROP students'},,"{'student': ""name='--injection;drop students""}",{},__injection,DELETE
+436,"update the article with id=9, setting the author=darcio",UPDATE,article,{'author': 'Darcio'},{'id': '9'},{'author': 'author'},{'id': 'id'},Article,UPDATE
+437,"update the article with id=9, setting the year=darcio",UPDATE,article,{'year': 'Darcio'},{'id': '9'},{'year': 'year'},{'id': 'id'},article,UPDATE
+438,"update the article with id=9, setting the year=2023",UPDATE,article,{'year': '2023'},{'id': '9'},{'year': 'year'},{'id': 'id'},article,UPDATE
+439,"update the article with id=9, setting the co-author=souza",UPDATE,article,{'co_author': 'Souza'},{'id': '9'},{'co_author': 'co-author'},{'id': 'id'},article,UPDATE
+440,add an article with title = 'apis modernas e assincronas com python',ADD,article,{'title': 'APIs Modernas e Assincronas com Python'},,{'title': 'apis modernas e assincronas com'},{},python,ADD
+442,get all entities,READ,entities,,,{},{},entity,READ
+443,"update the article with id=10, setting the year=2023",UPDATE,article,{'year': '2023'},{'id': '10'},{'year': 'year'},{'id': 'id'},article,UPDATE
+444,delete all articles with id=8,DELETE,article,{'id': '8'},,{'id': 'id'},{},article,DELETE
+445,"update the article with id=10, setting the author='odivon'",UPDATE,article,{'author': 'Odivon'},{'id': '10'},{'author': 'author'},{'id': 'id'},article,UPDATE
+446,can you save a article named “architecture guide”?,ADD,article,{'name': 'architecture guide'},,{'article': 'article'},{},architecture_guide,DELETE
+447,add article great,ADD,article,,,{},{},article,ADD
+448,add article with description = ‘the architecture guide”,ADD,article,{'description': 'The Architecture Guide”'},,"{'description': 'description', 'architecture': 'description', 'guide': 'description'}",{},article,ADD
+449,update article id=11 set author=‘leo siebra’,UPDATE,article,{'author': 'Leo Siebra'},{'id': '11'},None,None,None,None
+450,update article id=11  author=‘leo siebra’,UPDATE,article,{'author': 'Leo Siebra'},{'id': '11'},None,None,None,None
+451,get my articles,READ,article,,,{},{},article,READ
+452,add a product type=book,ADD,product,{'type': 'book'},,{'product': 'type=book'},{},book,ADD
+453,get products,READ,product,,,{'products': 'products'},{},get_products,READ
+454,show article id=2,READ,article,{'id': '2'},,{'id': 'id'},{},article,READ
+455,show article where id=5,READ,article,{'id': '5'},,{'id': 'id'},{},article,READ
+456,show article where id=1,READ,article,{'id': '1'},,{'id': 'id'},{},article,READ
+457,"update article with id=11, setting the author=leo siebra",UPDATE,article,{'author': 'Leo Siebra'},{'id': '11'},{'author': 'author'},{'id': 'id'},article,UPDATE
+458,show me the article with id=11,READ,article,{'id': '11'},,{'id': 'id'},{},article,READ
+459,"please add a article with title='attention is all you need', year=2022, author=""alex nogueira"", keywords=['attention']",ADD,article,"{'title': 'Attention is all you need', 'year': '2022', 'author': 'Alex Nogueira', 'keywords': 'Attention'}",,"{'title': 'title', 'year': 'year', 'author': 'author', ']': 'nogueira'}",{},Attention,ADD
+460,"add article with title='attention is all you need', year=2022, author=""alex nogueira"", keywords=['attention']",ADD,article,"{'title': 'Attention is all you need', 'year': '2022', 'author': 'Alex Nogueira', 'keywords': 'Attention'}",,"{'year': 'year', 'author': 'author', 'article': 'nogueira'}",{},article,ADD
+461,"update article with id=12, setting revision=1",UPDATE,article,{'revision': '1'},{'id': '12'},{'revision': 'revision'},{'id': 'id'},article,UPDATE
+462,add a movie with title='batman begins',ADD,film,{'title': 'Batman Begins'},,{'title': 'title'},{},film,ADD
+463,"add a movie with title='the dark knight', ""running time""=152",ADD,film,"{'title': 'The Dark Knight', 'running_time': '152'}",,{'movie': '152'},{},152,ADD
+464,get all students with name='anderson',READ,student,{'name': 'Anderson'},,"{'students': 'students', 'name': 'name'}",{},anderson,READ
+465,add a former teacher with name='onelia',ADD,former_teacher,{'name': 'Onelia'},,"{'former_teacher': 'teacher', 'name': 'name', 'onelia': 'name'}",{},a_former_teacher,ADD
+466,add an invoice with value=100,ADD,invoice,{'value': '100'},,{'invoice': '100'},{},value_100,ADD
+467,get all invoice,READ,invoice,,,{},{},invoice,READ
+468,add car with license=2020,ADD,car,{'license': '2020'},,{'car': 'license=2020'},{},license,ADD
+469,add car with color=black,ADD,car,{'color': 'black'},,{'car': 'color=black'},{},color,ADD
+470,get all cars,READ,car,,,{},{},car,READ
